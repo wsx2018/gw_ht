@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="__STATIC__/fonts/font-awesome-4.7.0/css/font-awesome.min.css" /><!--字体图标-->
+<link rel="stylesheet" href="__STATIC__/css/components.min.css" /><!--按钮及颜色样式-->
+<link rel="stylesheet" href="__STATIC__/css/admin_style.css?version=001" /><!--自定义样式-->
+<script type="text/javascript" src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+<title>肇庆OA文件共享管理系统</title>
+</head>
+
+<body>
+
+<div class="form_box">
+	<form action="{:url('FileOperationApi/fileEditApi')}" enctype="multipart/form-data" method="POST" name="upload_form">
+		<input type="hidden" name="fid" value="{$file.fid}">
+		<table>
+			<tbody>
+				<tr>
+					<th><font>*</font>类型：</th>
+					<td>
+						<select id="file_classify" name="file_classify">
+							{foreach $classifyList as $k=>$v}
+								{if $v.cid==$file.file_classify}
+								<option value="{$v.cid}"  selected="selected">{$v.classify_name}</option>
+								{else /}
+								<option value="{$v.cid}" >{$v.classify_name}</option>
+								{/if}
+
+							{/foreach}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><font>*</font>文件名：</th>
+					<td>
+						<input type="text" name="file_name" value="{$file.file_name}" placeholder="如:肇庆OA"/>
+					</td>
+				</tr>
+				<tr class="version_number_tr">
+					<th><font>*</font>版本号：</th>
+					<td>
+						<input type="text" name="version_number" value="{$file.version_number}" placeholder="如：v2.0"/>
+					</td>
+				</tr>
+				<tr>
+					<th><font>*</font>排序</th>
+					<td>
+						<input type="text" name="ranking" placeholder="999" value="{$file.ranking}"/>
+					</td>
+				</tr>
+				<tr>
+					<th><font>*</font>原文件：</th>
+					<td>
+						{$file.file_name}.{$file.format}
+					</td>
+				</tr>
+				<tr>
+					<th>重新上传文件：</th>
+					<td>
+						<input type="file" name="new_files" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<th><font>*</font>介绍：</th>
+					<td>
+						<textarea name="introduce" placeholder="请输入介绍信息">{$file.introduce}</textarea>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="10">
+						<a onclick="submit()" class="btn green">修改 <i class="fa fa-check-circle"></i></a>
+						<a onclick="empty()" class="btn red">重置 <i class="fa fa-times-circle"></i></a>
+						<a href="javascript:window.history.go(-1);" class="btn grey-salsa">返回列表 <i class="fa fa-list-ul"></i></a>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</form>
+</div>
+</body>
+<script type="text/javascript">
+	$(function () {
+		var file_classify = $('#file_classify').val();
+		if(file_classify==2){
+			//隐藏版本号输入框
+			$('.version_number_tr').hide();
+		}
+
+		//文件类型选择触发
+		$('#file_classify').change(function(){
+			file_classify = $(this).val();
+			if(file_classify==1){
+				//显示版本号输入框
+				$('.version_number_tr').show();
+			}else if(file_classify==2){
+				//隐藏版本号输入框
+				$('.version_number_tr').hide();
+			}
+		})
+	});
+
+	//提交
+	function submit()
+	{
+		var file_name = $("input[name='file_name']").val();
+		var file_classify = $("#file_classify").val();
+		var introduce = $("textarea[name='introduce']").val();
+		var version_number = $("input[name='version_number']").val();
+		var ranking = $("input[name='ranking']").val();
+
+		if(!file_name){
+			alert('文件名不能为空');
+			return false;
+		}
+		if(!file_classify){
+			alert('请选择文件分类');
+			return false;
+		}
+		if(!introduce){
+			alert('详细介绍不能为空');
+			return false;
+		}
+		if(!ranking){
+			alert('排序不能为空');
+			return false;
+		} 
+		if(file_classify==1){
+			if(!version_number){
+				alert('版本号不能为空');
+				return false;
+			}
+		}
+
+		$('form[name="upload_form"]').submit();
+	}
+
+	//重置
+	function empty()
+	{
+		$("input[name='file_name']").val('');
+		$("input[name='files']").val('');
+		$("textarea[name='introduce']").val('');
+		$("input[name='version_number']").val('');
+	}
+
+</script>
+</html>

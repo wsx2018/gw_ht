@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="__STATIC__/fonts/font-awesome-4.7.0/css/font-awesome.min.css" /><!--字体图标-->
+<link rel="stylesheet" href="__STATIC__/css/components.min.css" /><!--按钮及颜色样式-->
+<link rel="stylesheet" href="__STATIC__/css/admin_style.css?version=001" /><!--自定义样式-->
+<script type="text/javascript" src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+<title>肇庆OA文件共享管理系统</title>
+</head>
+
+<body>
+<div class="search_box">
+	<form action="{:url('userListView')}" method="GET" name="user_form">
+		<table>
+			<tr>
+				<th>用户名</th>
+				<td><input type="text" name="username" value="{$username}"/></td>
+				<td><a onclick="submit()" class="btn blue"><i class="fa fa-search"></i></a></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div class="content_list">
+	<table>
+		<thead>
+			<tr>
+				<th width="50">序号</th>
+				<th width="200">用户名</th>
+				<th class="align-left">备注</th>
+				<th width="180">创建时间</th>
+				<th width="100">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			{foreach $userList as $k=>$v}
+				<tr>
+					<td>{$k+1}</td>
+					<td>{$v.username}</td>
+					<td class="align-left">{$v.remarks}</td>
+					<td>{$v.creation_time}</td>
+					<td>
+						{if $is_super_admin}
+							{if $v.is_status==1}
+							<span style="color:darkblue">使用中</span> | <a href="{:url('AccountManagementApi/banUsername',['ban_username'=>$v.username])}">禁用</a>
+							{else/}
+							<span style="color:brown;">已禁用</span> | <a href="{:url('AccountManagementApi/openUsername',['open_username'=>$v.username])}">开通</a>
+							{/if}
+						{else/}
+							{if $v.is_status==1}
+							<span style="color:darkblue">使用中</span>
+							{else/}
+							<span style="color:brown;">已禁用</span>
+							{/if}
+						{/if}
+						
+					</td>
+				</tr>
+			{/foreach}
+		</tbody>
+	</table>
+</div>
+</body>
+<script type="text/javascript">
+	$(function () {});
+
+	function submit(){
+		$('form[name="user_form"]').submit();
+	}
+
+</script>
+</html>

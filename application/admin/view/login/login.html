@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户登录</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/common.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/login.css">
+	<script src="__STATIC__/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <div class="login_cont">
+            <div class="login_nav">
+                <div class="nav_slider">
+                    <!-- <a href="#" class="signup focus">注册</a> -->
+                    <a href="#" class="signin">登录</a>
+                </div>
+            </div>
+            <form action="{:url('userLoginApi')}" method="POST">
+                <div class="input_signup active">
+                    <input class="input" name="username" id="user_name" type="text" aria-label="用户名（包含字母／数字／下划线" placeholder="用户名">
+                    <div class="hint">请填写符合格式的用户名</div>
+                    
+                    <input class="input" name="password"  type="password" aria-label="密码" placeholder="密码（不少于 6 位）">
+                    <input type="submit" id="submit" class="button" name="button" value="登陆">
+                </div>
+            </form>
+        </div>
+        <script type="text/javascript" src="__STATIC__/js/form.js"></script> 
+</body>
+</html>

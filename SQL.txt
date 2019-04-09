@@ -1,0 +1,38 @@
+CREATE TABLE `tb_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL COMMENT '用户名，登录用',
+  `password` varchar(255) NOT NULL COMMENT '用户密码，不少于6位',
+  `sex` int(2) DEFAULT NULL COMMENT ' 用户性别 1:男 2:女',
+  `is_status` int(3) DEFAULT '1' COMMENT '用户状态 1:正常 2:禁止登录',
+  `creation_time` datetime DEFAULT NULL COMMENT '账号创建时间',
+  `remarks` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=gb2312 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tb_file_field` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fid` int(11) DEFAULT NULL COMMENT 'file表id',
+  `field_name` varchar(255) DEFAULT NULL COMMENT '字段名称',
+  `field_value` varchar(255) DEFAULT NULL COMMENT '字段值',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=gb2312 ROW_FORMAT=DYNAMIC COMMENT='文件关系表';
+
+CREATE TABLE `tb_file_classify` (
+  `cid` int(11) NOT NULL AUTO_INCREMENT,
+  `classify_name` varchar(255) DEFAULT NULL COMMENT '分类名称',
+  PRIMARY KEY (`cid`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=gb2312 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tb_file` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `file_name` varchar(255) NOT NULL COMMENT '文件名',
+  `file_classify` varchar(255) DEFAULT NULL COMMENT '文件分类 1:app 2:文档',
+  `format` varchar(255) DEFAULT NULL COMMENT '文件格式名',
+  `file_size` double DEFAULT NULL COMMENT '文件大小',
+  `file_url` varchar(255) DEFAULT NULL COMMENT '文件地址url',
+  `is_status` tinyint(2) DEFAULT '1' COMMENT '文件状态,1:正常 2:删除',
+  `upload_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '上传时间',
+  `version_number` varchar(255) DEFAULT NULL COMMENT '版本号',
+  `introduce` text COMMENT '介绍',
+  PRIMARY KEY (`fid`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=gb2312 ROW_FORMAT=DYNAMIC COMMENT='文件表  spu 标准化产品单元';

@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<title>用户文件下载列表</title>
+<link rel="stylesheet" type="text/css" href="/public/static/css/components.min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/public/static/css/font-awesome.min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/public/static/css/style.css" media="all" />
+<script type="text/jscript" src="__STATIC__/js/jquery-1.11.3.min.js"></script>
+
+
+</head>
+<body>
+<div class="page_all">
+    <div class="header">
+    	<img src="/public/static/img/logo.png" alt="肇庆市无纸化移动办公系统">
+        <font>用户文件下载列表</font>
+    </div>
+    <ol>
+        {eq name="file_classify" value="1"}
+            <li class="current" file_classify="1">APP下载</li>
+            <li file_classify="2">文档下载</li>
+        {else/}
+            <li file_classify="1">APP下载</li>
+            <li class="current" file_classify="2">文档下载</li>
+        {/eq}
+    </ol>
+    <div class="list_all" id="list_all">
+        <ul class="current">
+            {foreach $fileList as $k=>$v}
+                <li>
+                    <a href="{:url('fileDetailsView',['fid'=>$v.fid])}">
+                        <img src="/public/static/img/zq_logo.png" alt="图片">
+                        <div>
+                            <h3>{$v.file_name}</h3>
+                            <span>格式：<font>{$v.format}</font></span>
+                            <span>大小：<font>{$v.file_size}</font></span>
+                            <p>{$v.introduce}</p>
+                        </div>
+                    </a>
+                    <button onClick="file_download('{$v.file_url}','{$v.file_name}')">下载</button>
+                </li>
+            {/foreach} 	
+        </ul>  
+        <div class="page" id="data_count">
+            {$page|raw}
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $('ol li').click(function(e) {
+            var file_classify = $(this).attr('file_classify');      //文件分类
+
+            var url = "{:url('index')}";
+            var eleForm = $("<form name='list_view' id='list_view' method='get'></form>");
+            eleForm.append('<input type="hidden" name="file_classify" value="'+file_classify+'"/>');
+
+            eleForm.attr("action",url);
+
+            $(document.body).append(eleForm);
+            //提交表单
+            eleForm.submit();
+
+            return false;
+        });	
+    });
+
+    /*
+     * 文件下载 利用form表单提交下载
+     * @param file_url 文件url地址
+     * @param file_name 文件名(下载文件的名字) 
+     */
+    function file_download(file_url,file_name){
+        var eleForm = $("<form method='POST'></form>");
+
+        eleForm.attr("action","{:url('fileDownloadApi')}");
+        eleForm.append("<input type='hidden' name='file_url' value='"+file_url+"'/>");
+        eleForm.append("<input type='hidden' name='file_name' value='"+file_name+"'/>");
+        $(document.body).append(eleForm);
+        //提交表单，实现下载
+        eleForm.submit();
+        eleForm.remove();//移除该临时元素
+    }
+</script>
+</body>
+</html>

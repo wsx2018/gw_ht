@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="__STATIC__/fonts/font-awesome-4.7.0/css/font-awesome.min.css" /><!--字体图标-->
+<link rel="stylesheet" href="__STATIC__/css/components.min.css" /><!--按钮及颜色样式-->
+<link rel="stylesheet" href="__STATIC__/css/admin_style.css?version=001" /><!--自定义样式-->
+<script type="text/javascript" src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+<title>肇庆OA文件共享管理系统</title>
+</head>
+
+<body>
+<header class="page_header">
+	<img src="__STATIC__/img/logo.png" alt="图片" />
+	<h1>肇庆市无纸化移动办公系统</h1>
+	<p>欢迎您，{$username} <a href="{:url('Login/logindo')}">退出</a></p>
+</header>
+<ul class="nav_box">
+	<li class="current"><a href="{:url('appListView')}" target="page_iframe">APP列表</a></li>
+	<li><a href="{:url('wordListView')}" target="page_iframe">文档列表</a></li>
+	<li><a href="{:url('uploadView')}" target="page_iframe">文件上传</a></li>
+	<li><a href="{:url('userListView')}" target="page_iframe">管理员列表</a></li>
+	<li><a href="{:url('userAddView')}" target="page_iframe">添加管理员</a></li>
+</ul>
+<div class="content_page">
+	<iframe class="content_page_box" allowtransparency name="page_iframe" src="{:url('appListView')}"></iframe>
+</div>
+</body>
+<script type="text/javascript">
+$(function () {
+	//菜单切换样式
+	$('.nav_box li').click(function () {
+		$(this).addClass('current').siblings().removeAttr('class');
+	});
+});
+</script>
+</html>

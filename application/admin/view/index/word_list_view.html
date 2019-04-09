@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="__STATIC__/fonts/font-awesome-4.7.0/css/font-awesome.min.css" /><!--字体图标-->
+<link rel="stylesheet" href="__STATIC__/css/components.min.css" /><!--按钮及颜色样式-->
+<link rel="stylesheet" href="__STATIC__/css/admin_style.css?version=001" /><!--自定义样式-->
+<script type="text/javascript" src="__STATIC__/js/jquery-2.1.1.min.js"></script>
+<title>肇庆OA文件共享管理系统</title>
+</head>
+
+<body>
+<div class="search_box">
+	<form action="{:url('wordListView')}" method="GET" name="search_form">
+		<table>
+			<tr>
+				<th>文件名</th>
+				<td><input type="text" name="search_val" value="{$searchData.search_val}"/></td>
+				<td><a href="javascript:void(0);" class="btn blue"><i class="fa fa-search"></i></a></td>
+			</tr>
+		</table>
+	</form>
+	<div class="page" id="data_count">
+			{$page|raw}
+	</div>
+</div>
+<div class="content_list">
+	<table>
+		<thead>
+			<tr>
+				<th width="50">序号</th>
+				<th width="200">文件名</th>
+				<th width="100">格式</th>
+				<th width="100">大小</th>
+				<th width="100">排序</th>
+				<th class="align-left" width="600">简介</th>
+				<th width="180">修改时间</th>
+				<th width="100">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			{foreach $fileList as $k=>$v}
+				<tr>
+					<td>{$k+1}</td>
+					<td><a href="{:url('Index/fileEditPage',['fid'=>$v.fid])}">{$v.file_name}</a></td>
+					<td>{$v.format}</td>
+					<td>{$v.file_size}</td>
+					<td>{$v.ranking}</td>
+					<td class="align-left">{$v.introduce}</td>
+					<td>{$v.change_time|date='Y-m-d H:i'}</td>
+					<td>
+						<a onClick="file_download('{$v.file_url}','{$v.file_name}')">下载</a> | <a onClick="fileDel('{$v.fid}')">删除</a>
+					</td>
+				</tr>
+			{/foreach}
+		</tbody>
+	</table>
+</div>
+</body>
+<script type="text/javascript">
+	$(function () {
+		$('.btn').click(function(){
+			$("form[name='search_form']").submit();
+		})
+	});
+
+ 	/*
+     * 文件下载 利用form表单提交下载
+     * @param file_url 文件url地址
+     * @param file_name 文件名(下载文件的名字)
+     */
+	 function file_download(file_url,file_name){
+        var eleForm = $("<form method='POST'></form>");
+
+        eleForm.attr("action","{:url('FileOperationApi/fileDownloadApi')}");
+        eleForm.append("<input type='hidden' name='file_url' value='"+file_url+"'/>");
+        eleForm.append("<input type='hidden' name='file_name' value='"+file_name+"'/>");
+        $(document.body).append(eleForm);
+        //提交表单，实现下载
+        eleForm.submit();
+        eleForm.remove();//移除该临时元素
+    }
+
+    //文件删除
+    function fileDel(fid)
+    {
+		var eleForm = $("<form method='POST'></form>");
+
+		eleForm.attr("action","{:url('FileOperationApi/fileDelApi')}");
+		eleForm.append("<input type='hidden' name='fid' value='"+fid+"'/>");
+		$(document.body).append(eleForm);
+		//提交表单，实现删除
+		eleForm.submit();
+		eleForm.remove();//移除该临时元素
+	}
+</script>
+</html>

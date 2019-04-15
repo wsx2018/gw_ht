@@ -1,0 +1,174 @@
+2018-09-26 09:37:45 pid:1 think\exception\ErrorException: Undefined variable: dataArr in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 D:\wamp64\www\gw_ht\application\http\Worker.php(20): think\Error::appError(8, 'Undefined varia...', 'D:\\wamp64\\www\\g...', 20, Array)
+#1 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#2 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#8 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#9 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#14 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#15 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#16 {main}
+
+Next Error: Cannot access empty property in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#3 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#9 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#14 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#15 {main}
+
+Next Error: Cannot access empty property in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#3 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#9 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#14 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#15 {main}
+2018-09-26 09:37:45 pid:1 Worker process terminated
+2018-09-26 09:38:33 pid:1 think\exception\ErrorException: Undefined variable: dataArr in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 D:\wamp64\www\gw_ht\application\http\Worker.php(20): think\Error::appError(8, 'Undefined varia...', 'D:\\wamp64\\www\\g...', 20, Array)
+#1 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#2 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#8 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#9 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#14 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#15 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#16 {main}
+
+Next Error: Cannot access empty property in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#3 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#9 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#14 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#15 {main}
+
+Next Error: Cannot access empty property in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#3 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#9 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#14 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#15 {main}
+2018-09-26 09:38:33 pid:1 Worker process terminated
+2018-09-26 09:39:28 pid:1 think\exception\ErrorException: Undefined variable: dataArr in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 D:\wamp64\www\gw_ht\application\http\Worker.php(20): think\Error::appError(8, 'Undefined varia...', 'D:\\wamp64\\www\\g...', 20, Array)
+#1 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#2 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#8 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#9 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#14 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#15 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#16 {main}
+
+Next Error: Cannot access empty property in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#3 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#9 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#14 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#15 {main}
+
+Next Error: Cannot access empty property in D:\wamp64\www\gw_ht\application\http\Worker.php:20
+Stack trace:
+#0 [internal function]: app\http\Worker->onMessage(Object(Workerman\Connection\TcpConnection), 0)
+#1 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Connection\TcpConnection.php(650): call_user_func(Array, Object(Workerman\Connection\TcpConnection), 0)
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #106)
+#3 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Events\Select.php(295): call_user_func_array(Array, Array)
+#4 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(2322): Workerman\Events\Select->loop()
+#5 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1315): Workerman\Worker->run()
+#6 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(1258): Workerman\Worker::forkWorkersForWindows()
+#7 D:\wamp64\www\gw_ht\vendor\workerman\workerman\Worker.php(507): Workerman\Worker::forkWorkers()
+#8 D:\wamp64\www\gw_ht\vendor\topthink\think-worker\src\command\Server.php(75): Workerman\Worker::runAll()
+#9 D:\wamp64\www\gw_ht\thinkphp\library\think\console\Command.php(175): think\worker\command\Server->execute(Object(think\console\Input), Object(think\console\Output))
+#10 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(680): think\console\Command->run(Object(think\console\Input), Object(think\console\Output))
+#11 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(261): think\Console->doRunCommand(Object(think\worker\command\Server), Object(think\console\Input), Object(think\console\Output))
+#12 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(198): think\Console->doRun(Object(think\console\Input), Object(think\console\Output))
+#13 D:\wamp64\www\gw_ht\thinkphp\library\think\Console.php(115): think\Console->run()
+#14 D:\wamp64\www\gw_ht\think(22): think\Console::init()
+#15 {main}
+2018-09-26 09:39:28 pid:1 Worker process terminated
